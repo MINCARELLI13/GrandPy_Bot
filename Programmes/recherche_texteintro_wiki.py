@@ -1,22 +1,22 @@
-""" Ce script permet de récupérer la partie 'introduction' dans un article de Wikipedia à partir du 'pageid' """
+# coding: utf-8
+
+"""
+    Ce script permet de récupérer la partie 'introduction'
+    dans un article de Wikipedia à partir du 'pageid'
+"""
 #!/usr/bin/python3
 
-"""
-    opensearch.py
-    MediaWiki API Demos
-    Demo of `Opensearch` module: Search the wiki and obtain
-	results in an OpenSearch (http://www.opensearch.org) format
-    MIT License
-"""
-
 import requests
+
+# ------------------------------------------------------------
+# test avec un "pageid = 676806" correspondant à la page concernant Napoléon  (pour la "tour eiffel", pageid = 1359783)
+pageid_value = "676806"
+# https://fr.wikipedia.org/w/api.php?action=query&pageids=676806&format=json&prop=extracts&redirects=1&exintro&explaintext
+# ------------------------------------------------------------
 
 S = requests.Session()
 
 URL = "https://fr.wikipedia.org/w/api.php"
-
-# test avec un "pageid" correspondant à la page concernant Napoléon
-pageid_value = "676806"
 
 PARAMS = {"action": "query", "pageids": pageid_value, "format": "json", "prop": "extracts", "redirects": "1", "exintro":"", "explaintext":""} 
 
