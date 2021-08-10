@@ -1,0 +1,125 @@
+.container-fluid {
+    text-align: center;
+}
+
+.row-entete{
+    margin: auto;
+}
+
+#logo {
+    width: 80px;
+    height: 50px;
+    padding: 5px;
+}
+
+#leitmotiv {
+    color: white;
+    padding: auto;
+}
+
+.container-contenu {
+    width: 35%;
+    height: 100%;
+    margin-top: 10px;
+    min-width: 450px;
+    padding: 30px;
+}
+
+.col-image {
+    align-self: center;
+    padding-bottom: 50px;
+}
+
+#grandpy_photo {
+    width: 170px;
+    height: 110px;
+}
+
+.bonjour {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    color: red;
+}
+
+.question, #smiley {
+    color: blue;
+    font-weight: 500;
+}
+
+#zone_affichage_reponses {
+    border-left: 1px black solid;
+    width: 75%;
+    height: 400px;
+    padding-left: 5px;
+}
+
+#sous_zone_reponses {
+    width: 100%;
+    height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.response {
+    font-weight: bold;
+}
+
+.name {
+    text-decoration: underline;
+    font-weight: 500;    
+}
+
+.maps {
+    border: 2px blue solid;
+    width: 100%;
+    height: 100%;
+}
+
+#zone_affichage_question {
+    width: 75%;
+}
+
+.list-inline-item {
+    color: cornflowerblue;
+}
+
+.loader{
+    margin:auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 8px solid #bdc3c7;
+    width: 60px;
+    height: 60px;
+    border-top-color: #1abc9c;
+    border-bottom-color: #3498db;
+    border-radius: 50%;
+    animation: chargeur 3s linear infinite;
+}
+  
+@keyframes chargeur {
+    0%{
+        transform: rotate(0deg) scale(1);
+        border-top-color: red;
+        border-bottom-color: red;
+    }
+    25%{
+        border-top-color: blue;
+        border-bottom-color: blue;
+    }
+    50% {
+        transform: rotate(360deg) scale(1.15);
+        border-top-color: red;
+        border-bottom-color: red;
+    }
+    75%{
+        border-top-color: green;
+        border-bottom-color: green;
+    }
+    100%{
+        transform: rotate(720deg) scale(1);
+        border-top-color: red;
+        border-bottom-color: red;
+    } 
+}
