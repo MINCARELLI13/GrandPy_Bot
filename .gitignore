@@ -1,8 +1,7 @@
-assets/*
-!assets/.gitignore
-protected/runtime/*
-!protected/runtime/.gitignore
-protected/data/*.db
-themes/classic/views/
-env
 *.pyc
+__pycache__
+env/
+app.db
+fbapp/tests/*.db
+geckodriver.log
+.cache/
