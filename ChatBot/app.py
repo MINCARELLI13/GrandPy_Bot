@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-import json
 
 from ChatBot.location_place import Place
 from ChatBot.parser_question import Parser
@@ -31,7 +30,6 @@ def parse_to_execute():
     parse_list = Parser.parsing(ask)
     ask_parse = ' '.join(parse_list)
     # json formatting
-    # return json.dumps({"ask_parse": ask_parse})
     return {"ask_parse": ask_parse}
 
 @app.route('/place')
@@ -67,4 +65,5 @@ def wiki():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port='5000')
+    app.run()
+    # app.run(debug=True, port='5000')
