@@ -1,9 +1,14 @@
 from flask import Flask, render_template, request
+import json
 
-from location_place import Place
+from ChatBot.location_place import Place
+from ChatBot.parser_question import Parser
+from ChatBot.recherche_pageids_wiki import Wikipedia
+
+""" from location_place import Place
 from parser_question import Parser
-from recherche_pageids_wiki import Wikipedia
-# from recherche_texteintro_wiki import
+from recherche_pageids_wiki import Wikipedia """
+
 
 app = Flask(__name__)
 
@@ -26,6 +31,7 @@ def parse_to_execute():
     parse_list = Parser.parsing(ask)
     ask_parse = ' '.join(parse_list)
     # json formatting
+    # return json.dumps({"ask_parse": ask_parse})
     return {"ask_parse": ask_parse}
 
 @app.route('/place')

@@ -47,10 +47,12 @@ function parserQuestion() {
 
     // cleaning of the question area
     zoneQuestion.value = "";
+    console.log(url);
 
-    // parsing of the question 
+    // parsing of the question
     fetch(url)
         .then(function (response) {
+            console.log(response)
             return response.json();
         })
         .then(function (data) {

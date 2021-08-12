@@ -3,7 +3,7 @@
 
 from os import name
 import re
-# from types import resolve_bases
+
 
 class Parser:
     """
@@ -68,7 +68,7 @@ class Parser:
         """
         keywords = []
         # read all words of file 'stopwords.txt'...
-        with open('static/stopwords.txt', 'r') as stopwords:
+        with open('ChatBot/static/stopwords.txt', 'r') as stopwords:
             lignes = stopwords.readlines()
             # transform the file 'stopwords.txt' into a list of words
             crible = lignes[0].split(',')
@@ -104,7 +104,7 @@ class Parser:
         keywords = []
         for word in list_of_words:
             # search the good file of verbs to see if the 'word' is a verb
-            file_path = 'static/Verbes_en_francais/' + cls.verbs_file_name(word)
+            file_path = 'ChatBot/static/Verbes_en_francais/' + cls.verbs_file_name(word)
             with open(file_path, 'r') as stop_verbs:
                 lignes = stop_verbs.readlines()
                 crible = lignes[0].split(',')
