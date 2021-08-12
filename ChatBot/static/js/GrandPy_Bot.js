@@ -52,8 +52,7 @@ function parserQuestion() {
     // parsing of the question
     fetch(url)
         .then(function (response) {
-            console.log(response)
-            return response.json();
+            return response.json()
         })
         .then(function (data) {
             // put the scrollbar down
