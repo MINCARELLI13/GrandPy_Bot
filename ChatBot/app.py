@@ -1,12 +1,8 @@
 from flask import Flask, render_template, request
 
-from ChatBot.location_place import Place
-from ChatBot.parser_question import Parser
-from ChatBot.recherche_pageids_wiki import Wikipedia
-
-""" from location_place import Place
-from parser_question import Parser
-from recherche_pageids_wiki import Wikipedia """
+from .location_place import Place
+from .parser_question import Parser
+from .recherche_pageids_wiki import Wikipedia
 
 
 app = Flask(__name__)
