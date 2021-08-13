@@ -1,7 +1,6 @@
 """ Parse a sentence into keywords by removing 'stopwords' and verbs """
 # coding: utf-8
 
-from os import name
 import re
 
 
