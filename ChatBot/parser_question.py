@@ -1,7 +1,7 @@
 """ Parse a sentence into keywords by removing 'stopwords' and verbs """
-# coding: utf-8
 
 import re
+import io
 
 
 class Parser:
@@ -67,7 +67,7 @@ class Parser:
         """
         keywords = []
         # read all words of file 'stopwords.txt'...
-        with open('ChatBot/static/stopwords.txt', 'r') as stopwords:
+        with open('ChatBot/static/stopwords.txt', "r", encoding="latin-1") as stopwords:
             lignes = stopwords.readlines()
             # transform the file 'stopwords.txt' into a list of words
             crible = lignes[0].split(',')
@@ -104,7 +104,7 @@ class Parser:
         for word in list_of_words:
             # search the good file of verbs to see if the 'word' is a verb
             file_path = 'ChatBot/static/Verbes_en_francais/' + cls.verbs_file_name(word)
-            with open(file_path, 'r') as stop_verbs:
+            with open(file_path, "r", encoding="latin-1") as stop_verbs:
                 lignes = stop_verbs.readlines()
                 crible = lignes[0].split(',')
                 if not(word.lower() in crible):

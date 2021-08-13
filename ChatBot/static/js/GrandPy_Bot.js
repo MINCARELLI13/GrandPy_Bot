@@ -57,7 +57,7 @@ function parserQuestion() {
         .then(function (data) {
             // put the scrollbar down
             sousZoneReponses.scrollTop = sousZoneReponses.scrollHeight;
-            // creation of an hourglass during data processing 
+            // creation of an hourglass during data processing
             sousZoneReponses.innerHTML += "<div class='loader'></div>";
             // send the parsed and filtered question to the 'spotLocation' function
             spotLocation(data['ask_parse']);
