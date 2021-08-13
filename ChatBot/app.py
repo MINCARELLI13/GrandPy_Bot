@@ -22,6 +22,7 @@ def parse_to_execute():
     """
     # retrieving of question 'ask' from url received
     ask = request.args.get('ask')
+    print("ask pour le parser :", ask)
     # parsing of the question
     parse_list = Parser.parsing(ask)
     ask_parse = ' '.join(parse_list)
