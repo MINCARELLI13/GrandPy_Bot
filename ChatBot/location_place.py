@@ -11,8 +11,6 @@ import requests
 class Place:
     """ Get the address and geographic coordinates of a spot """
 
-    # creation of a session 
-    SESSION = requests.Session()
     # url of the 'Google Place' API to build the endpoints
     URL = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json"
 
@@ -20,12 +18,12 @@ class Place:
     def location(cls, spot):
         """
             Get the address and geographic coordinates of a 'spot'
-            As input  : the 'spot' as string (exple : 'tour Eiffel')
+            As input  : the 'spot' as string (exple : 'adresse tour Eiffel')
             In return : the address and coordinates of the 'spot'
         """
         PARAMS = {"input": spot, "inputtype": "textquery", "fields": "formatted_address,geometry,name", "key": "AIzaSyAaICGdTIFPs_4qaw3g6FvdM5Gh2ZnoU9M"}
         # sent the query to the API 'Google Place'
-        response = cls.SESSION.get(url=cls.URL, params=PARAMS)
+        response = requests.get(url=cls.URL, params=PARAMS)
         # get the json content of the response 
         data = response.json()
         # if the Google Place API succeeded in identifying the spot
@@ -48,5 +46,7 @@ if __name__ == '__main__':
     # name, address, latt, long = Place.location("adresse bonne mère")
     # name, address = Place.location('tour eiffel')
     # print("Dans Google, l'adresse de '{}' est {} (longitutde: {}, latitude {}".format(name, address, long, latt))
-    ask = "adresse bonne mère"
+    # ask = "adresse bonne mère"
+    # ask = "adresse Tour Eiffel"
+    ask = "sähr^pôrzejgùm"
     print(ask, Place.location(ask))

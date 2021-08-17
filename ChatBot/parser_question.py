@@ -1,4 +1,6 @@
-""" Parse a sentence into keywords by removing 'stopwords' and verbs """
+""" Parse a sentence into keywords by removing 'stopwords' and verbs # coding: latin-1 """
+# coding: utf-8
+
 
 import re
 import io
@@ -67,7 +69,7 @@ class Parser:
         """
         keywords = []
         # read all words of file 'stopwords.txt'...
-        with open('ChatBot/static/stopwords.txt', "r", encoding="latin-1") as stopwords:
+        with open('C:/Users/utilisateur/Desktop/Formation_OpenClassRoom/Projet_7/PROJET/GrandPy_Bot/ChatBot/static/stopwords.txt', "r") as stopwords:
             lignes = stopwords.readlines()
             # transform the file 'stopwords.txt' into a list of words
             crible = lignes[0].split(',')
@@ -103,8 +105,8 @@ class Parser:
         keywords = []
         for word in list_of_words:
             # search the good file of verbs to see if the 'word' is a verb
-            file_path = 'ChatBot/static/Verbes_en_francais/' + cls.verbs_file_name(word)
-            with open(file_path, "r", encoding="latin-1") as stop_verbs:
+            file_path = 'C:/Users/utilisateur/Desktop/Formation_OpenClassRoom/Projet_7/PROJET/GrandPy_Bot/ChatBot/static/Verbes_en_francais/' + cls.verbs_file_name(word)
+            with open(file_path, "r") as stop_verbs:
                 lignes = stop_verbs.readlines()
                 crible = lignes[0].split(',')
                 if not(word.lower() in crible):
@@ -123,6 +125,8 @@ class Parser:
 
 
 if __name__=='__main__':
-    # question = "Est-ce que tu sais où se trouve OpenClassrooms ?"
-    question = "Quelle est l'adresse de la Tour Eiffel ?"
+    # question = "Salut GrandPy ! Est-ce que tu sais où se trouve la 'bonne mère' ?"
+    # question = "Quelle est l'adresse de la Tour Eiffel ?"
+    # question = "Bonsoir, pourrais-tu me donner l'adresse de la Tour Eiffel, s'il te plaît ?"
+    question = "Coucou Grand Py, saurais-tu me donner des informations sur Marseille ?"
     print(question, " : ", Parser.parsing(question))
