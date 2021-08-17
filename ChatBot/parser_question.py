@@ -70,7 +70,7 @@ class Parser:
         keywords = []
         # read all words of file 'stopwords.txt'...
         # with open('C:/Users/utilisateur/Desktop/Formation_OpenClassRoom/Projet_7/PROJET/GrandPy_Bot/ChatBot/static/stopwords.txt', "r") as stopwords:
-        with open('ChatBot/static/stopwords.txt', "r") as stopwords:
+        with open('GrandPy_Bot/ChatBot/static/stopwords.txt', "r") as stopwords:
 
             lignes = stopwords.readlines()
             # transform the file 'stopwords.txt' into a list of words
