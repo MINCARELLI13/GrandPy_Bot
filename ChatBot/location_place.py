@@ -6,8 +6,8 @@
 # coding: utf-8
 
 import requests
-import os
-from boto.s3.connection import S3Connection
+# import os
+# from boto.s3.connection import S3Connection
 
 
 class Place:
