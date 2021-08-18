@@ -6,8 +6,8 @@
 # coding: utf-8
 
 import requests
-# import os
-# from boto.s3.connection import S3Connection
+import os
+from boto.s3.connection import S3Connection
 
 
 class Place:
@@ -26,7 +26,7 @@ class Place:
         PARAMS = {"input": spot,
                   "inputtype": "textquery",
                   "fields": "formatted_address,geometry,name",
-                  "key": "AIzaSyAaICGdTIFPs_4qaw3g6FvdM5Gh2ZnoU9M"}
+                  "key": S3Connection(os.environ['Google_Place_KEY'])}
         # S3Connection(os.environ['Google_Place_KEY'])}
         # "key": "AIzaSyAaICGdTIFPs_4qaw3g6FvdM5Gh2ZnoU9M"
         # sent the query to the API 'Google Place'
