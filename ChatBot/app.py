@@ -1,8 +1,10 @@
+""" Script allowing communication between javascript and python via a server """
+
 from flask import Flask, render_template, request
 
-from .location_place import Place
-from .parser_question import Parser
-from .recherche_pageids_wiki import Wikipedia
+from location_place import Place
+from parser_question import Parser
+from recherche_pageids_wiki import Wikipedia
 
 
 app = Flask(__name__)
@@ -15,7 +17,7 @@ def chat_bot():
 @app.route('/parser/question')
 def parse_to_execute():
     """
-        Parse the question asked 
+        Parse the question asked
         As input  : the question 'ask' as string
         In return : the parsed question 'ask_parse' as json
         (the variable 'ask_parse' is a string )
@@ -31,7 +33,7 @@ def parse_to_execute():
 
 @app.route('/place')
 def place_to_find():
-    """ 
+    """
         Locate a spot from the parsed elements of a question 'ask'
         As input  : the parsed question 'ask' as string
         In return : name, address and coordinates of the spot as json
@@ -41,7 +43,8 @@ def place_to_find():
     # call to the Google Place API to locate the spot
     (spot_name, spot_address, spot_latt, spot_long) = Place.location(ask)
     # json formatting
-    return {"name": spot_name, "address": spot_address, "latt":spot_latt, "long": spot_long}
+    return {"name": spot_name, "address": spot_address,
+            "latt": spot_latt, "long": spot_long}
 
 @app.route('/wiki')
 def wiki():
@@ -53,7 +56,7 @@ def wiki():
     # retrieving of the 'spot_name' from url received
     spot_name = request.args.get('spot_name')
     # retrieving the wikipedia identifier of the spot
-    # needed to obtain the wiki's story of the place 
+    # needed to obtain the wiki's story of the place
     (title, pageid) = Wikipedia.page_id(spot_name)
     # call to the Wiki Media API for the spot's story
     story = Wikipedia.intro(pageid)

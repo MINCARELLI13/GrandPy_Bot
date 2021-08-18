@@ -3,9 +3,7 @@
     of a wikipedia article and the introduction of that article
 """
 # coding: utf-8
-
 import requests
-import json
 
 
 class Wikipedia:
@@ -28,13 +26,13 @@ class Wikipedia:
         PARAMS = {"action": "query", "list": "search", "srsearch": spot_name, "format": "json"}
         # sent the query to the API 'Wiki Media'
         response = requests.get(url=cls.URL, params=PARAMS)
-        # get the json content of the response 
-        data = response.json()     
+        # get the json content of the response
+        data = response.json()
         title = data['query']['search'][0]['title']
         pageid = data['query']['search'][0]['pageid']
         # return the title and the pageid of the article of wikipedia as strings
         return (title, pageid)
-    
+
     @classmethod
     def intro(cls, pageid):
         """
@@ -42,8 +40,14 @@ class Wikipedia:
             As input  : the 'pageid' of wikipedia of the spot as string
             In return : the 'pageid' of the wikipedia article of the spot as string
         """
-        PARAMS = {"action": "query", "pageids": pageid, "format": "json", "prop": "extracts", "redirects": "1", "exintro":"", "explaintext":""}
-        # sent the query to the API 'Wiki Media'      
+        PARAMS = {"action": "query", "pageids": pageid,
+                  "format": "json",
+                  "prop": "extracts",
+                  "redirects": "1",
+                  "exintro": "",
+                  "explaintext": ""
+                 }
+        # sent the query to the API 'Wiki Media'
         response = requests.get(url=cls.URL, params=PARAMS)
         # get the json content of the response
         introduction = response.json()
@@ -57,7 +61,7 @@ if __name__ == '__main__':
     # pageid(bonne mère) = 252114
     result = Wikipedia.page_id("bonne mere")
     # result = Wikipedia.page_id("Tour Eiffel")
-    print(result)
-    print("Dans Wikipedia, le 'pageid' de '{}' est {}".format(result[0], result[1]))
-    result = Wikipedia.intro(result[1])
-    print(result)
+    # print(result)
+    # print("Dans Wikipedia, le 'pageid' de '{}' est {}".format(result[0], result[1]))
+    # result = Wikipedia.intro(result[1])
+    # print(result)

@@ -1,4 +1,4 @@
-""" Parse a sentence into keywords by removing 'stopwords' and verbs  # coding: utf-8  # coding: latin-1 """
+""" Parse a sentence into keywords by removing 'stopwords' and verbs """
 
 import re
 
@@ -16,12 +16,12 @@ class Parser:
             As input  : a 'word' where the accents must be removed
             In return : the 'word' without accented letter
         """
-        substituts = {  
+        substituts = {
                     'a': ['à', 'â', 'ä'],
                     'e': ['é', 'è', 'ê', 'ë'],
-                    'i':['ï', 'î'],
+                    'i': ['ï', 'î'],
                     'o': ['ô', 'ö'],
-                    'u': ['ù', 'û', 'ü'], 
+                    'u': ['ù', 'û', 'ü'],
                     'y': 'ÿ',
                     'c': 'ç'
                     }
@@ -42,7 +42,7 @@ class Parser:
         return result
 
     @staticmethod
-    def sentence_parser (sentence):
+    def sentence_parser(sentence):
         """
             Extract only words of the 'sentence'
             and remove single letters (d',l'...)
@@ -54,7 +54,7 @@ class Parser:
         # remove words who are single letters
         for word in words_list:
             if len(word) == 1:
-                del(words_list[words_list.index(word)])
+                del words_list[words_list.index(word)]
         return words_list
 
     @staticmethod
@@ -66,7 +66,6 @@ class Parser:
         """
         keywords = []
         # read all words of file 'stopwords.txt'...
-        # with open('C:/Users/utilisateur/Desktop/Formation_OpenClassRoom/Projet_7/PROJET/GrandPy_Bot/ChatBot/static/stopwords.txt', "r") as stopwords:
         with open('ChatBot/static/stopwords.txt', "r", encoding="latin-1") as stopwords:
             lignes = stopwords.readlines()
             # transform the file 'stopwords.txt' into a list of words
@@ -118,13 +117,14 @@ class Parser:
             and the verbs and return a list of keywords
             As input  : the sentence as string
             In return : the list of keywords of the question
-        """        
+        """
         return cls.delete_verbs(cls.delete_stopwords(cls.sentence_parser(question)))
 
 
 if __name__=='__main__':
+    pass
     # question = "Salut GrandPy ! Est-ce que tu sais où se trouve la 'bonne mère' ?"
     # question = "Quelle est l'adresse de la Tour Eiffel ?"
     # question = "Bonsoir, pourrais-tu me donner l'adresse de la Tour Eiffel, s'il te plaît ?"
-    question = "Coucou Grand Py, saurais-tu me donner des informations sur Marseille ?"
-    print(question, " : ", Parser.parsing(question))
+    # question = "Coucou Grand Py, saurais-tu me donner des informations sur Marseille ?"
+    # print(question, " : ", Parser.parsing(question))
