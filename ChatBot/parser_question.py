@@ -102,6 +102,7 @@ class Parser:
         keywords = []
         for word in list_of_words:
             # search the good file of verbs to see if the 'word' is a verb
+            # file_path = 'ChatBot/static/Verbes_en_francais/' + cls.verbs_file_name(word)
             file_path = 'ChatBot/static/Verbes_en_francais/' + cls.verbs_file_name(word)
             with open(file_path, "r", encoding="latin-1") as stop_verbs:
                 lignes = stop_verbs.readlines()
@@ -127,4 +128,5 @@ if __name__=='__main__':
     # question = "Quelle est l'adresse de la Tour Eiffel ?"
     # question = "Bonsoir, pourrais-tu me donner l'adresse de la Tour Eiffel, s'il te plaît ?"
     # question = "Coucou Grand Py, saurais-tu me donner des informations sur Marseille ?"
+    # question = "la pyramide Khéops d'egypte"
     # print(question, " : ", Parser.parsing(question))
