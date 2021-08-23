@@ -25,9 +25,8 @@ class Place:
         PARAMS = {"input": spot,
                   "inputtype": "textquery",
                   "fields": "formatted_address,geometry,name",
-                  "key": "AIzaSyAaICGdTIFPs_4qaw3g6FvdM5Gh2ZnoU9M"}
+                  "key": os.environ['Google_Place_KEY']}
                   
-        # "key": os.environ['Google_Place_KEY']}
         # "key": "AIzaSyAaICGdTIFPs_4qaw3g6FvdM5Gh2ZnoU9M"}
         # sent the query to the API 'Google Place'
         response = requests.get(url=cls.URL, params=PARAMS)
