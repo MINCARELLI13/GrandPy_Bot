@@ -156,17 +156,19 @@ function wikiIntro(spot_name) {
         return response.json();
     })
     .then(function (data) {
-        // stop of the hourglass after returning response 
-        let loader = zoneMapTexte[index-1].getElementsByClassName('loader');
-        loader[0].parentNode.removeChild(loader[0]);
-        // create of url to redirect to the Wikipedia site
-        let urlWiki = "https://fr.wikipedia.org/wiki/" + data['title'].replace(' ', '_')
-        // display the wikipedia story of the spot 
-        zoneMapTexte[index-1].innerHTML = "</br><div>" + grandpy_image + "<span class='response'> Mais connais-tu l'histoire de ce lieu ?</span><br/></div>";
-        zoneMapTexte[index-1].innerHTML += data['intro'] + "<br/>";
-        zoneMapTexte[index-1].innerHTML += "[<a href='" + urlWiki + "' target='_blank'>En savoir plus sur Wikipedia </a>]" +  '<hr>';
-        // increase the index for next area of google maps
-        index = index + 1;
+        if (data['title'] != "ZERO_RESULTS") {
+            // stop of the hourglass after returning response 
+            let loader = zoneMapTexte[index-1].getElementsByClassName('loader');
+            loader[0].parentNode.removeChild(loader[0]);
+            // create of url to redirect to the Wikipedia site
+            let urlWiki = "https://fr.wikipedia.org/wiki/" + data['title'].replace(' ', '_')
+            // display the wikipedia story of the spot
+            zoneMapTexte[index-1].innerHTML = "</br><div>" + grandpy_image + "<span class='response'> Mais connais-tu l'histoire de ce lieu ?</span><br/></div>";
+            zoneMapTexte[index-1].innerHTML += data['intro'] + "<br/>";
+            zoneMapTexte[index-1].innerHTML += "[<a href='" + urlWiki + "' target='_blank'>En savoir plus sur Wikipedia </a>]" +  '<hr>';
+            // increase the index for next area of google maps
+            index = index + 1;
+        }
     })
     .catch(error => alert("Erreur : " + error));
 };
