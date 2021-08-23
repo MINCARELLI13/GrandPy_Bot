@@ -169,7 +169,7 @@ function wikiIntro(spot_name) {
             // increase the index for next area of google maps
             index = index + 1;
         } else {
-            zoneMapTexte[index-1].innerHTML = "Aucun résultat n'a été trouvé sur Wikipedia"
+            zoneMapTexte[index-1].innerHTML = "</br><div>" + grandpy_image + "<span class='response'> Aucun résultat n'a été trouvé sur Wikipedia</span><br/></div>";
         }
     })
     .catch(error => alert("Erreur : " + error));
