@@ -28,8 +28,12 @@ class Wikipedia:
         response = requests.get(url=cls.URL, params=PARAMS)
         # get the json content of the response
         data = response.json()
-        title = data['query']['search'][0]['title']
-        pageid = data['query']['search'][0]['pageid']
+        if data['query']:
+            title = data['query']['search'][0]['title']
+            pageid = data['query']['search'][0]['pageid']
+        else:
+            title = "ZERO_RESULTS"
+            pageid = "ZERO_RESULTS"
         # return the title and the pageid of the article of wikipedia as strings
         return (title, pageid)
 
@@ -59,9 +63,11 @@ class Wikipedia:
 if __name__ == '__main__':
     # pageid(tour eiffel) = 1359783
     # pageid(bonne mère) = 252114
-    result = Wikipedia.page_id("bonne mere")
+    # result = Wikipedia.page_id("bonne mere")
+    result = Wikipedia.page_id("arc triomphe")
+    result = Wikipedia.intro(16)
     # result = Wikipedia.page_id("Tour Eiffel")
-    # print(result)
+    print(result)
     # print("Dans Wikipedia, le 'pageid' de '{}' est {}".format(result[0], result[1]))
     # result = Wikipedia.intro(result[1])
     # print(result)

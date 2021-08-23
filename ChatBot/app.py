@@ -58,8 +58,11 @@ def wiki():
     # retrieving the wikipedia identifier of the spot
     # needed to obtain the wiki's story of the place
     (title, pageid) = Wikipedia.page_id(spot_name)
-    # call to the Wiki Media API for the spot's story
-    story = Wikipedia.intro(pageid)
+    if title = "ZERO_RESULTS":
+        story = "ZERO_RESULTS"
+    else:
+        # call to the Wiki Media API for the spot's story
+        story = Wikipedia.intro(pageid)
     data = {"title": title, "intro": story}
     return data
 
