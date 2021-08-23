@@ -25,8 +25,10 @@ class Place:
         PARAMS = {"input": spot,
                   "inputtype": "textquery",
                   "fields": "formatted_address,geometry,name",
-                  "key": os.environ['Google_Place_KEY']}
-        # "key": "AIzaSyAaICGdTIFPs_4qaw3g6FvdM5Gh2ZnoU9M"
+                  "key": "AIzaSyAaICGdTIFPs_4qaw3g6FvdM5Gh2ZnoU9M"}
+                  
+        # "key": os.environ['Google_Place_KEY']}
+        # "key": "AIzaSyAaICGdTIFPs_4qaw3g6FvdM5Gh2ZnoU9M"}
         # sent the query to the API 'Google Place'
         response = requests.get(url=cls.URL, params=PARAMS)
         # get the json content of the response
@@ -55,4 +57,5 @@ if __name__ == '__main__':
     # ask = "adresse bonne mère"
     # ask = "adresse Tour Eiffel"
     # ask = "sähr^pôrzejgùm"
-    # print(ask, Place.location(ask))
+    ask = "arc triomphe"
+    print(ask, Place.location(ask))

@@ -28,7 +28,8 @@ class Wikipedia:
         response = requests.get(url=cls.URL, params=PARAMS)
         # get the json content of the response
         data = response.json()
-        if data['query']:
+        # print('data :', data)
+        if data['query']['searchinfo']['totalhits']:
             title = data['query']['search'][0]['title']
             pageid = data['query']['search'][0]['pageid']
         else:
@@ -51,11 +52,14 @@ class Wikipedia:
                   "exintro": "",
                   "explaintext": ""
                  }
-        # sent the query to the API 'Wiki Media'
-        response = requests.get(url=cls.URL, params=PARAMS)
-        # get the json content of the response
-        introduction = response.json()
-        intro = introduction['query']['pages'][str(pageid)]['extract']
+        if pageid == "ZERO_RESULTS":
+            intro = "ZERO_RESULTS"
+        else:
+            # sent the query to the API 'Wiki Media'
+            response = requests.get(url=cls.URL, params=PARAMS)
+            # get the json content of the response
+            introduction = response.json()
+            intro = introduction['query']['pages'][str(pageid)]['extract']
         # return the introduction of the article of wikipedia as string
         return intro
 
@@ -64,8 +68,9 @@ if __name__ == '__main__':
     # pageid(tour eiffel) = 1359783
     # pageid(bonne mère) = 252114
     # result = Wikipedia.page_id("bonne mere")
-    result = Wikipedia.page_id("arc triomphe")
-    result = Wikipedia.intro(16)
+    result = Wikipedia.page_id("arc triom")
+    print(result)
+    result = Wikipedia.intro("ZERO_RESULTS")
     # result = Wikipedia.page_id("Tour Eiffel")
     print(result)
     # print("Dans Wikipedia, le 'pageid' de '{}' est {}".format(result[0], result[1]))
