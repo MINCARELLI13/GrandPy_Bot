@@ -165,8 +165,3 @@ def test_wiki_introduction(monkeypatch):
 
 if __name__ == '__main__':
     pass
-    # print("MockResponse('où bonne mère').json() :", MockResponse('où bonne mère').json())
-    # print("MockResponse('adresse Tour Eiffel').json() :",
-    # MockResponse('adresse Tour Eiffel').json())
-    # print("MockResponse('sähr^pôrzejgùm').json() :",
-    # MockResponsePlace('sähr^pôrzejgùm').json())
