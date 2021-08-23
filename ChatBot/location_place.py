@@ -27,7 +27,6 @@ class Place:
                   "fields": "formatted_address,geometry,name",
                   "key": os.environ['Google_Place_KEY']}
                   
-        # "key": "AIzaSyAaICGdTIFPs_4qaw3g6FvdM5Gh2ZnoU9M"}
         # sent the query to the API 'Google Place'
         response = requests.get(url=cls.URL, params=PARAMS)
         # get the json content of the response
@@ -50,11 +49,3 @@ class Place:
 
 if __name__ == '__main__':
     pass
-    # name, address, latt, long = Place.location("adresse bonne mère")
-    # name, address = Place.location('tour eiffel')
-    # print("Dans Google, l'adresse de '{}' est {} (longitutde: {}, latitude {}".format(name, address, long, latt))
-    # ask = "adresse bonne mère"
-    # ask = "adresse Tour Eiffel"
-    # ask = "sähr^pôrzejgùm"
-    ask = "arc triomphe"
-    print(ask, Place.location(ask))

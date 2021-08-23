@@ -67,7 +67,6 @@ class Parser:
         keywords = []
         # read all words of file 'stopwords.txt'...
         with open('ChatBot/static/stopwords.txt', "r", encoding="latin-1") as stopwords:
-        # with open("Chatbot/static/stopwords.txt", "r") as stopwords:
             lignes = stopwords.readlines()
             # transform the file 'stopwords.txt' into a list of words
             crible = lignes[0].split(',')
@@ -105,7 +104,6 @@ class Parser:
             # search the good file of verbs to see if the 'word' is a verb
             file_path = 'ChatBot/static/Verbes_en_francais/' + cls.verbs_file_name(word)
             with open(file_path, "r", encoding="latin-1") as stop_verbs:
-            # with open(file_path, "r") as stop_verbs:
                 lignes = stop_verbs.readlines()
                 crible = lignes[0].split(',')
                 if not(word.lower() in crible):
@@ -125,9 +123,3 @@ class Parser:
 
 if __name__=='__main__':
     pass
-    # question = "Salut GrandPy ! Est-ce que tu sais où se trouve la 'bonne mère' ?"
-    # question = "Quelle est l'adresse de la Tour Eiffel ?"
-    # question = "Bonsoir, pourrais-tu me donner l'adresse de la Tour Eiffel, s'il te plaît ?"
-    # question = "Coucou Grand Py, saurais-tu me donner des informations sur Marseille ?"
-    # question = "la pyramide Khéops d'egypte"
-    # print(question, " : ", Parser.parsing(question))
