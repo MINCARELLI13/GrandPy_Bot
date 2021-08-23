@@ -168,6 +168,8 @@ function wikiIntro(spot_name) {
             zoneMapTexte[index-1].innerHTML += "[<a href='" + urlWiki + "' target='_blank'>En savoir plus sur Wikipedia </a>]" +  '<hr>';
             // increase the index for next area of google maps
             index = index + 1;
+        } else {
+            zoneMapTexte[index-1].innerHTML = "Aucun résultat n'a été trouvé sur Wikipedia"
         }
     })
     .catch(error => alert("Erreur : " + error));
